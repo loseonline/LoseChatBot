@@ -52,9 +52,9 @@ async def type_and_send(message):
  
 @lose.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
- await message.reply_text(
- "[GitHub](https://github.com/usermusti/LoseChatBot)"
- + " | [Geliştirici](t.me/loseonline)",
+ await message.reply_text("**Ben Løse Chat Bot**, Pyrogram kullanılarak Python'da yazılmış başka bir Telegram AI sohbet botuyum. ★\nDaha fazla bilgi için **/help**'i tıklayın."
+ "[Button.url('🇹🇷 Beni Bir Gruba Ekle', 'https://t.me/LoseChatBot?startgroup=a'),
+                      Button.url('👨‍💻 Geliştirici', 'https://t.me/loseonline')]
  disable_web_page_preview=True,
  )
  
