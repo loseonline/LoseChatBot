@@ -24,13 +24,13 @@ bot_id = int(bot_token.split(":")[0])
 arq = None
  
  
-async def lunaQuery(query: str, user_id: int):
+async def loseQuery(query: str, user_id: int):
  query = (
  query
- if LANGUAGE == "en"
- else (await arq.translate(query, "en")).result.translatedText
+ if LANGUAGE == "tr"
+ else (await arq.translate(query, "tr")).result.translatedText
  )
- resp = (await arq.luna(query, user_id)).result
+ resp = (await arq.lose(query, user_id)).result
  return (
  resp
  if LANGUAGE == "tr"
@@ -45,7 +45,7 @@ async def type_and_send(message):
  user_id = message.from_user.id if message.from_user else 0
  query = message.text.strip()
  await message._client.send_chat_action(chat_id, "typing")
- response, _ = await gather(lunaQuery(query, user_id), sleep(2))
+ response, _ = await gather(loseQuery(query, user_id), sleep(2))
  await message.reply_text(response)
  await message._client.send_chat_action(chat_id, "cancel")
  
@@ -54,7 +54,7 @@ async def type_and_send(message):
 async def repo(_, message):
  await message.reply_text(
  "[GitHub](https://github.com/usermusti/LoseChatBot)"
- + " | [Group](t.me/PatheticProgrammers)",
+ + " | [Geliştirici](t.me/loseonline)",
  disable_web_page_preview=True,
  )
  
