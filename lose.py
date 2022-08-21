@@ -94,12 +94,6 @@ async def chat(_, message):
 @lose.on_message(
  filters.private & ~filters.command("help") & ~filters.edited
 )
-async def chatpm(_, message):
- if not message.text: Önce ortak noktamız olan bir gruba gönder/bağlan.
- return
- await type_and_send(message)
- 
- 
 async def main():
  global arq
  session = ClientSession()
