@@ -95,7 +95,7 @@ async def chat(_, message):
  filters.private & ~filters.command("help") & ~filters.edited
 )
 async def chatpm(_, message):
- if not message.text:
+ if not message.text: Önce ortak noktamız olan bir gruba gönder/bağlan.
  return
  await type_and_send(message)
  
