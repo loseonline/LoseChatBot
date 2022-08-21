@@ -67,28 +67,28 @@ async def start(_, message):
  
  
 @lose.on_message(
- ~filters.private
- & filters.text
- & ~filters.command("help")
- & ~filters.edited,
- group=69,
+    ~filters.private
+    & filters.text
+    & ~filters.command("help")
+    & ~filters.edited,
+    group=69,
 )
 async def chat(_, message):
- if message.reply_to_message:
- if not message.reply_to_message.from_user:
-    return
- from_user_id = message.reply_to_message.from_user.id
- if from_user_id != bot_id:
-   vreturn
- else:
- match = re.search(
- "[.|\n]{0,}lose[.|\n]{0,}",
- message.text.strip(),
- flags=re.IGNORECASE,
- )
- if not match:
-    return
- await type_and_send(message)
+    if message.reply_to_message:
+        if not message.reply_to_message.from_user:
+            return
+        from_user_id = message.reply_to_message.from_user.id
+        if from_user_id != bot_id:
+            return
+    else:
+        match = re.search(
+            "[.|\n]{0,}lose[.|\n]{0,}",
+            message.text.strip(),
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            return
+    await type_and_send(message)
  
  
 @lose.on_message(
@@ -108,9 +108,9 @@ async def main():
  await lose.start()
  print(
  """
------------------
-| Lose Çalışıyor! |
------------------
+--------------------
+| Lose Çalışıyor!  |
+--------------------
 """
  )
  await idle()
