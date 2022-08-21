@@ -12,7 +12,7 @@
  ],
  "stack": "heroku-20",
  "env": {
- "bot_token": {
+ "BOT_TOKEN": {
  "description": "Your Bot's Api Token ,Get it from @BotFather",
  "required": true
  },
