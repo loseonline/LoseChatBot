@@ -13,7 +13,7 @@ if is_config:
 else:
  from sample_config import *
  
-luna = Client(
+lose = Client(
  ":memory:",
  bot_token=bot_token,
  api_id=6,
@@ -53,8 +53,8 @@ async def type_and_send(message):
 @lose.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
  await message.reply_text(
- "[GitHub](https://github.com/thehamkercat/LunaChatBot)"
- + " | [Group](t.me/PatheticProgrammers)",
+ "[GitHub](https://github.com/usermusti/LunaChatBot)"
+ + " | [Geliştirici](t.me/loseonline)",
  disable_web_page_preview=True,
  )
  
@@ -94,6 +94,12 @@ async def chat(_, message):
 @lose.on_message(
  filters.private & ~filters.command("help") & ~filters.edited
 )
+async def chatpm(_, message):
+ if not message.text:
+ return
+ await type_and_send(message)
+ 
+ 
 async def main():
  global arq
  session = ClientSession()
@@ -103,7 +109,7 @@ async def main():
  print(
  """
 -----------------
-| Lose Started! |
+| Lose Çalışıyor! |
 -----------------
 """
  )
