@@ -76,10 +76,10 @@ async def start(_, message):
 async def chat(_, message):
  if message.reply_to_message:
  if not message.reply_to_message.from_user:
- return
+    return
  from_user_id = message.reply_to_message.from_user.id
  if from_user_id != bot_id:
- return
+   vreturn
  else:
  match = re.search(
  "[.|\n]{0,}lose[.|\n]{0,}",
@@ -87,7 +87,7 @@ async def chat(_, message):
  flags=re.IGNORECASE,
  )
  if not match:
- return
+    return
  await type_and_send(message)
  
  
@@ -96,7 +96,7 @@ async def chat(_, message):
 )
 async def chatpm(_, message):
  if not message.text:
- return
+    return
  await type_and_send(message)
  
  
